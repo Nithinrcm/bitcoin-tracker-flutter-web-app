@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '../utils/constants.dart'; // Import constants
+import '../utils/constants.dart';
 
 class ApiService {
-  final Map<String, double> _conversionRates = {}; // Cache for conversion rates
+  final Map<String, double> _conversionRates = {};
 
   Future<double> fetchBitcoinPriceInUSD() async {
     final response = await http.get(Uri.parse(bitcoinApiUrl));
@@ -25,7 +25,6 @@ class ApiService {
       final data = jsonDecode(response.body);
       final rates = data['data'] as Map<String, dynamic>;
 
-      // Store conversion rates in the cache
       rates.forEach((currency, rate) {
         _conversionRates[currency] = double.parse(rate.toString());
       });

@@ -30,9 +30,8 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.teal,
       body: Column(
         children: [
-          // Image at the top, always centered
           Padding(
-            padding: const EdgeInsets.only(top: 40.0), // Adjust top padding as needed
+            padding: const EdgeInsets.only(top: 40.0),
             child: Center(
               child: Image.asset(
                 'assets/images/bitcoin.png',
@@ -41,8 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          const SizedBox(height: 20), // Space between image and text
-          // Price text, always below the image
+          const SizedBox(height: 20),
           StreamBuilder<String>(
             stream: _viewModel.bitcoinRate,
             builder: (context, snapshot) {
@@ -61,16 +59,14 @@ class _HomeScreenState extends State<HomeScreen> {
               );
             },
           ),
-          // Spacer to push the currency picker to the bottom
           Spacer(),
-          // Currency picker, always at the bottom and centered
           Padding(
-            padding: const EdgeInsets.only(bottom: 20.0), // Adjust bottom padding as needed
+            padding: const EdgeInsets.only(bottom: 20.0),
             child: SizedBox(
-              height: 150, // Height of the rotating menu
+              height: 150,
               child: ListWheelScrollView(
-                itemExtent: 50, // Height of each item in the wheel
-                perspective: 0.005, // Adjust the depth effect
+                itemExtent: 50,
+                perspective: 0.005,
                 diameterRatio: 1.2,
                 physics: FixedExtentScrollPhysics(),
                 onSelectedItemChanged: (index) {

@@ -10,7 +10,6 @@ class BitcoinViewModel {
   String get selectedCurrency => _selectedCurrency;
 
   BitcoinViewModel() {
-    // Fetch all conversion rates once at initialization
     _apiService.fetchAllConversionRates().catchError((error) {
       _bitcoinRateController.sink.addError('Failed to fetch conversion rates: $error');
     });
